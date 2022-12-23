@@ -1,5 +1,0 @@
-head {
-    title < id="foo" style= "foo;bar;" > {
-        "Foo Bar"
-    };
-};
