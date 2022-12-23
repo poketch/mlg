@@ -1,5 +1,7 @@
 use std::{collections::HashMap, path::PathBuf};
 
+use crate::tokenizer::*;
+
 pub struct Interface;
 
 impl Interface {
@@ -12,6 +14,14 @@ impl Interface {
 }
 
 impl Interface {
+    pub fn generate_html(program: String) -> () {
+        let tokenizer = Tokenizer::new(program).into_iter().peekable();
+
+        for token in tokenizer {
+            println!("{:?}", token);
+        }
+    }
+
     pub fn retrieve_program(parsed_args: HashMap<&str, PathBuf>) -> String {
         let in_file = parsed_args.get(Self::PATH_TAG).unwrap();
 
